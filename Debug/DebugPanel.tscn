@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn3n1jtnkvsr8"]
+
+[ext_resource type="PackedScene" uid="uid://bv2donlgyx74x" path="res://Debug/DebugTitle.tscn" id="1_mmo0j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuwv4"]
+content_margin_left = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0901961, 0.0901961, 0.0901961, 0.682353)
+anti_aliasing = false
+
+[node name="Panel" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_uuwv4")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" parent="Container" instance=ExtResource("1_mmo0j")]
+unique_name_in_owner = true
+layout_mode = 2

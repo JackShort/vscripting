@@ -4,7 +4,7 @@ var deadzone = 0.01
 var zoom_factor: float = 1.01
 var max_zoom: Vector2 = Vector2(2, 2)
 var min_zoom: Vector2 = Vector2(0.5, 0.5)
-var pan_speed: float = 3000.0
+var pan_speed: float = 800.0
 
 var wish_pan_direction := Vector2.ZERO
 
@@ -25,12 +25,11 @@ func _physics_process(delta):
     if wish_pan_direction.is_zero_approx():
         return
 
-    global_position += wish_pan_direction * pan_speed * delta
+    global_position += wish_pan_direction * pan_speed * delta * (1 / zoom.x)
     wish_pan_direction = Vector2.ZERO
 
 
 func zoom_towards_cursor(zoom_delta):
-    print(wish_pan_direction)
     var target_zoom = zoom * zoom_delta
 
     target_zoom.x = clamp(target_zoom.x, min_zoom.x, max_zoom.x)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3xuocux1yxc7"]
+
+[ext_resource type="Script" path="res://Debug/Debugger.gd" id="1_anktp"]
+
+[node name="Debug Container" type="VBoxContainer"]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_anktp")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8crjyhqhqqem"]
+
+[sub_resource type="SystemFont" id="SystemFont_wf7ft"]
+font_names = PackedStringArray("1980v23P01")
+subpixel_positioning = 0
+
+[node name="Title2" type="Label"]
+theme_override_colors/font_color = Color(1, 1, 1, 0.556863)
+theme_override_fonts/font = SubResource("SystemFont_wf7ft")
+theme_override_font_sizes/font_size = 24
+text = "PlayerController"
