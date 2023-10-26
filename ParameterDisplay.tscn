@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://1ldicrmkanru"]
+
+[ext_resource type="Theme" uid="uid://bo8kigawanwjo" path="res://text_theme.tres" id="1_hcwh1"]
+
+[node name="ParameterDisplayContainer" type="HBoxContainer"]
+theme_override_constants/separation = 20
+
+[node name="TypeLabel" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_hcwh1")
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.921569, 0.839216, 0.345098, 1)
+text = "one
+"
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_hcwh1")
+theme_type_variation = &"HeaderSmall"
+text = "two"
+
+[node name="Value" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_hcwh1")
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_color = Color(0.341176, 0.921569, 0.85098, 1)
+text = "three"

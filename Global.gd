@@ -1,13 +1,13 @@
 extends Node
 
-enum SolTypes {
+enum SolType {
     sol_uint256,
     sol_bool
 }
 
 var sol_types_to_string = {
-    SolTypes.sol_uint256: "uint256",
-    SolTypes.sol_bool: "bool",
+    SolType.sol_uint256: "uint256",
+    SolType.sol_bool: "bool",
 }
 
 var graph_node_list: GraphNodeList = null
