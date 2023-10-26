@@ -11,13 +11,6 @@ offset_right = 6000.0
 offset_bottom = 4040.0
 color = Color(0.160784, 0.160784, 0.160784, 1)
 
-[node name="Background2" type="ColorRect" parent="."]
-offset_left = -16.0
-offset_top = -1152.0
-offset_right = 5128.0
-offset_bottom = 2120.0
-color = Color(0.568627, 0.568627, 0.568627, 1)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("1_tuxxw")
