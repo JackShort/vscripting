@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgi0u2c7oocb3"]
+
+[ext_resource type="Script" path="res://GraphNodeData.gd" id="1_1f22x"]
+
+[node name="GraphNodeData" type="Node"]
+script = ExtResource("1_1f22x")

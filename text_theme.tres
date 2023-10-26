@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bo8kigawanwjo"]
+
+[ext_resource type="FontFile" uid="uid://ils670aqnn6a" path="res://BerkeleyMono-Regular.ttf" id="1_jnsqn"]
+
+[resource]
+default_font = ExtResource("1_jnsqn")

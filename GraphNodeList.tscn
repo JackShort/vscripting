@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd45w0c6lva0"]
+
+[ext_resource type="Script" path="res://GraphNodeList.gd" id="1_b2x5x"]
+[ext_resource type="PackedScene" uid="uid://bgi0u2c7oocb3" path="res://GraphNodeData.tscn" id="2_dqge7"]
+
+[node name="GraphNodeList" type="Node"]
+script = ExtResource("1_b2x5x")
+
+[node name="uint256" parent="." instance=ExtResource("2_dqge7")]
+
+[node name="bool" parent="." instance=ExtResource("2_dqge7")]
+
+[node name="add" parent="." instance=ExtResource("2_dqge7")]

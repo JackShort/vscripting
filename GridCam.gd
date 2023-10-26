@@ -4,7 +4,7 @@ var deadzone = 0.01
 var zoom_factor: float = 1.07
 var max_zoom: Vector2 = Vector2(3, 3)
 var min_zoom: Vector2 = Vector2(0.5, 0.5)
-var pan_speed: float = 800.0
+var pan_speed: float = 900.0
 
 var wish_zoom_factor := 0.0
 var wish_pan_direction := Vector2.ZERO
