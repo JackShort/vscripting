@@ -15,3 +15,6 @@ func get_default_value(_type: Global.SolType):
             return 0
         Global.SolType.sol_bool:
             return false
+
+func _to_string():
+    return "SolParameter: " + name + " " + str(type) + " " + str(value)

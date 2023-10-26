@@ -17,7 +17,7 @@
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="PanelContainer" type="PanelContainer" parent="UILayer"]
-custom_minimum_size = Vector2(550, 2.08165e-12)
+custom_minimum_size = Vector2(600, 2.08165e-12)
 offset_right = 450.0
 offset_bottom = 2600.0
 
@@ -42,7 +42,7 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/Header"]
 layout_mode = 2
 offset_top = 40.0
-offset_right = 536.0
+offset_right = 584.0
 offset_bottom = 44.0
 
 [node name="ParametersSection" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer"]

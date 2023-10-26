@@ -1,6 +1,6 @@
 extends VBoxContainer
 
-@onready var param_display_scene = preload("res://ParameterDisplay.tscn")
+@onready var param_display_scene = preload("res://FunctionDisplay.tscn")
 @onready var add_function_button = %AddFunctionButton
 @onready var function_input = %FunctionsInput
 @onready var function_container = %FunctionsContainer
@@ -22,7 +22,5 @@ func _on_add_param():
     var param_displayer = param_display_scene.instantiate()
     function_container.add_child(param_displayer)
     param_displayer.get_node("NameLabel").text = sol_function.name
-    param_displayer.get_node("TypeLabel").visible = false
-    param_displayer.get_node("Value").visible = false
 
     function_input.clear()
