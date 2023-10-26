@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://d23k47vwmjlya"]
+[gd_scene load_steps=10 format=3 uid="uid://d23k47vwmjlya"]
 
 [ext_resource type="Script" path="res://Graph.gd" id="1_dqnvj"]
 [ext_resource type="Script" path="res://GridRenderer.gd" id="1_eaphm"]
 [ext_resource type="Script" path="res://GridCam.gd" id="1_tuxxw"]
 [ext_resource type="Theme" uid="uid://bo8kigawanwjo" path="res://text_theme.tres" id="1_v7iym"]
 [ext_resource type="Script" path="res://ParameterInputHandler.gd" id="2_44j18"]
+[ext_resource type="Script" path="res://FunctionsInputHandler.gd" id="3_p7qvg"]
 [ext_resource type="PackedScene" uid="uid://dd45w0c6lva0" path="res://GraphNodeList.tscn" id="5_aqdkv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxtku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_83ecl"]
 
 [node name="Main" type="Node2D"]
 
@@ -42,12 +45,12 @@ offset_top = 40.0
 offset_right = 434.0
 offset_bottom = 44.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ParametersSection" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12
 script = ExtResource("2_44j18")
 
-[node name="ParameterHeader" type="Label" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ParameterHeader" type="Label" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/ParametersSection"]
 layout_mode = 2
 theme = ExtResource("1_v7iym")
 theme_type_variation = &"HeaderLarge"
@@ -55,27 +58,60 @@ theme_override_colors/font_color = Color(1, 1, 1, 0.564706)
 text = "Parameters
 "
 
-[node name="ParameterInputHandler" type="HBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ParameterInputHandler" type="HBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/ParametersSection"]
 layout_mode = 2
 
-[node name="ParamTypeDropdown" type="OptionButton" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ParameterInputHandler"]
+[node name="ParamTypeDropdown" type="OptionButton" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/ParametersSection/ParameterInputHandler"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jxtku")
 
-[node name="ParamInput" type="LineEdit" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ParameterInputHandler"]
+[node name="ParamInput" type="LineEdit" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/ParametersSection/ParameterInputHandler"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AddParamButton" type="Button" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ParameterInputHandler"]
+[node name="AddParamButton" type="Button" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/ParametersSection/ParameterInputHandler"]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("1_v7iym")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_83ecl")
 text = "Add"
 
-[node name="ParameterContainer" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ParameterContainer" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/ParametersSection"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FunctionsSection" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+script = ExtResource("3_p7qvg")
+
+[node name="FunctionsHeader" type="Label" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/FunctionsSection"]
+layout_mode = 2
+theme = ExtResource("1_v7iym")
+theme_type_variation = &"HeaderLarge"
+theme_override_colors/font_color = Color(1, 1, 1, 0.564706)
+text = "Functions"
+
+[node name="FunctionsInputHandler" type="HBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/FunctionsSection"]
+layout_mode = 2
+
+[node name="FunctionsInput" type="LineEdit" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/FunctionsSection/FunctionsInputHandler"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddFunctionButton" type="Button" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/FunctionsSection/FunctionsInputHandler"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_v7iym")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxEmpty_83ecl")
+text = "Add"
+
+[node name="FunctionsContainer" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/FunctionsSection"]
 unique_name_in_owner = true
 layout_mode = 2
 
