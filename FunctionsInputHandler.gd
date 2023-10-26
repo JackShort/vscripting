@@ -11,6 +11,9 @@ func _ready():
 func _on_add_param():
     var function_name = function_input.text
 
+    if function_name == "":
+        return
+
     if not Global.vm_state.has("functions"):
         Global.vm_state["functions"] = {}
 

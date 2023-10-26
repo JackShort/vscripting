@@ -16,6 +16,9 @@ func _on_add_param():
     var param_name = param_input.text
     var param_type = type_option_button.get_item_id(type_option_button.selected)
 
+    if param_name == "":
+        return
+
     if not Global.vm_state.has("parameters"):
         Global.vm_state["parameters"] = {}
 

@@ -42,7 +42,7 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/Header"]
 layout_mode = 2
 offset_top = 40.0
-offset_right = 434.0
+offset_right = 536.0
 offset_bottom = 44.0
 
 [node name="ParametersSection" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -81,6 +81,9 @@ text = "Add"
 
 [node name="ParameterContainer" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer/ParametersSection"]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="FunctionsSection" type="VBoxContainer" parent="UILayer/PanelContainer/MarginContainer/VBoxContainer"]
