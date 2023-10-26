@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Main.gd" id="1_dqnvj"]
 [ext_resource type="Script" path="res://GridRenderer.gd" id="1_eaphm"]
 [ext_resource type="Script" path="res://GridCam.gd" id="1_tuxxw"]
-[ext_resource type="PackedScene" uid="uid://cgdolghcjt43v" path="res://Node.tscn" id="4_86ki2"]
+[ext_resource type="PackedScene" uid="uid://cgdolghcjt43v" path="res://GraphNode.tscn" id="4_86ki2"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dqnvj")
@@ -21,7 +21,7 @@ anchor_mode = 0
 script = ExtResource("1_tuxxw")
 
 [node name="Control" parent="." instance=ExtResource("4_86ki2")]
-offset_left = 112.0
-offset_top = 72.0
-offset_right = 412.0
-offset_bottom = 95.0
+offset_left = 496.0
+offset_top = 288.0
+offset_right = 796.0
+offset_bottom = 370.0
