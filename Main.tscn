@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://d23k47vwmjlya"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_dqnvj"]
+[ext_resource type="Script" path="res://GridRenderer.gd" id="1_eaphm"]
+[ext_resource type="Script" path="res://GridCam.gd" id="1_tuxxw"]
+[ext_resource type="PackedScene" uid="uid://dd45w0c6lva0" path="res://GraphNodeList.tscn" id="5_aqdkv"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="UILayer"]
+offset_right = 65.0
+offset_bottom = 23.0
+text = "TESTING
+"
+
+[node name="Graph" type="Node2D" parent="."]
+script = ExtResource("1_dqnvj")
+
+[node name="Grid" type="ColorRect" parent="Graph"]
+offset_left = -8120.0
+offset_top = -6016.0
+offset_right = 8960.0
+offset_bottom = 5680.0
+mouse_filter = 2
+color = Color(0.160784, 0.160784, 0.160784, 1)
+script = ExtResource("1_eaphm")
+
+[node name="Camera2D" type="Camera2D" parent="Graph"]
+anchor_mode = 0
+script = ExtResource("1_tuxxw")
+
+[node name="GraphNodeList" parent="Graph" instance=ExtResource("5_aqdkv")]
