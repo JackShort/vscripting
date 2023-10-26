@@ -11,7 +11,6 @@ var _hovering := false
 func _input(event):
     if event is InputEventMouseButton and event.is_released() and _hovering and Global.graph.dragged_param:
         if event.button_index == MOUSE_BUTTON_LEFT:
-            print("hello")
             Global.graph.dragged_param.line_segment.attach_param(self, true)
 
 func init(text: String):
