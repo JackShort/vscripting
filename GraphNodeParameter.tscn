@@ -14,7 +14,7 @@ content_margin_bottom = 4.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy021"]
 
 [node name="GraphNodeParameter" type="HBoxContainer"]
-theme_override_constants/separation = 12
+theme_override_constants/separation = 8
 script = ExtResource("1_tyh1b")
 
 [node name="ParameterButton" type="Button" parent="."]
