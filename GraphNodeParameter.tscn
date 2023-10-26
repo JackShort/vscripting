@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://tt5o3hrn8hvw"]
+
+[ext_resource type="StyleBox" uid="uid://bnd3nh0hx03fl" path="res://graphnode_button.tres" id="1_cce1c"]
+[ext_resource type="Script" path="res://GraphNodeParameter.gd" id="1_tyh1b"]
+[ext_resource type="Texture2D" uid="uid://b3alm7nptnemk" path="res://round_button.png" id="2_v0av5"]
+[ext_resource type="Theme" uid="uid://bo8kigawanwjo" path="res://text_theme.tres" id="3_y1uqa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmcrv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy021"]
+
+[node name="GraphNodeParameter" type="HBoxContainer"]
+theme_override_constants/separation = 12
+script = ExtResource("1_tyh1b")
+
+[node name="ParameterButton" type="Button" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 0.247059, 1, 1)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lmcrv")
+theme_override_styles/hover = ExtResource("1_cce1c")
+theme_override_styles/pressed = ExtResource("1_cce1c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sy021")
+icon = ExtResource("2_v0av5")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_y1uqa")
+text = "Position
+"

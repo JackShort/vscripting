@@ -13,6 +13,7 @@
 script = ExtResource("1_dqnvj")
 
 [node name="Grid" type="ColorRect" parent="Graph"]
+z_index = -1
 offset_left = -8120.0
 offset_top = -6016.0
 offset_right = 8960.0

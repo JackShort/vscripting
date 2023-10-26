@@ -1,7 +1,10 @@
 extends PanelContainer
 class_name ScriptingGraphNode
 
+@onready var graph_node_parameter = preload("res://GraphNodeParameter.tscn")
 @onready var node_name_label: Label = %NodeName
+@onready var input_container: VBoxContainer = %InputContainer
+@onready var output_container: VBoxContainer = %OutputContainer
 
 var _mouse_entered := false
 var _selected := false
@@ -28,8 +31,19 @@ func init(graph_node_data: GraphNodeData):
     node_name_label.text = graph_node_data.name
 
 func _ready():
+    for child in input_container.get_children():
+        input_container.remove_child(child)
+        child.queue_free()
+
+    for child in output_container.get_children():
+        output_container.remove_child(child)
+        child.queue_free()
+
     mouse_entered.connect(func(): _on_mouse_entered())
     mouse_exited.connect(func(): _mouse_entered = false)
+
+    add_parameter("param1")
+    add_parameter("param2", true)
 
 func _physics_process(_delta):
     if _dragging:
@@ -56,3 +70,15 @@ func _set_panel_border_width(width: int):
 
 func _on_mouse_entered():
     _mouse_entered = true
+
+func add_parameter(param_name: String, output = false):
+    var param = graph_node_parameter.instantiate()
+
+    if output:
+        output_container.add_child(param)
+        param.move_child(param.get_children()[1], 0)
+        param.alignment = 2
+        param.init(param_name)
+    else:
+        input_container.add_child(param)
+        param.init(param_name)

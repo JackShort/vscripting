@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgdolghcjt43v"]
+[gd_scene load_steps=6 format=3 uid="uid://cgdolghcjt43v"]
 
 [ext_resource type="Script" path="res://GraphNode.gd" id="1_rh83k"]
 [ext_resource type="Theme" uid="uid://bo8kigawanwjo" path="res://text_theme.tres" id="2_tpexm"]
+[ext_resource type="PackedScene" uid="uid://tt5o3hrn8hvw" path="res://GraphNodeParameter.tscn" id="3_xlrqs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7bsk"]
 resource_local_to_scene = true
@@ -24,6 +25,7 @@ corner_radius_top_left = 4
 corner_radius_top_right = 4
 
 [node name="GraphNode" type="PanelContainer"]
+z_index = 1
 custom_minimum_size = Vector2(300, 2.08165e-12)
 offset_right = 300.0
 offset_bottom = 23.0
@@ -53,11 +55,23 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="InputContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputParam" parent="VBoxContainer/MarginContainer/HBoxContainer/InputContainer" instance=ExtResource("3_xlrqs")]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer2"]
+[node name="OutputContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme = ExtResource("2_tpexm")
-text = "Position
-"
+size_flags_horizontal = 3
+
+[node name="OutputParam" parent="VBoxContainer/MarginContainer/HBoxContainer/OutputContainer" instance=ExtResource("3_xlrqs")]
+layout_mode = 2
+alignment = 2
