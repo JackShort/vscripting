@@ -2,7 +2,7 @@ extends Camera2D
 
 var deadzone = 0.01
 var zoom_factor: float = 1.07
-var max_zoom: Vector2 = Vector2(2, 2)
+var max_zoom: Vector2 = Vector2(3, 3)
 var min_zoom: Vector2 = Vector2(0.5, 0.5)
 var pan_speed: float = 800.0
 
