@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d23k47vwmjlya"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_dqnvj"]
+[ext_resource type="Script" path="res://Graph.gd" id="1_dqnvj"]
 [ext_resource type="Script" path="res://GridRenderer.gd" id="1_eaphm"]
 [ext_resource type="Script" path="res://GridCam.gd" id="1_tuxxw"]
 [ext_resource type="Theme" uid="uid://bo8kigawanwjo" path="res://text_theme.tres" id="1_v7iym"]
