@@ -17,6 +17,15 @@ func attach_param(param: GraphNodeParameter, second = false):
         first_param = param
 
 func _process(_delta):
+    if first_param and !is_instance_valid(first_param):
+        queue_free()
+        return
+    
+    if second_param and !is_instance_valid(second_param):
+        first_param.line_segment = null
+        queue_free()
+        return
+
     if first_param:
         points[0] = param_button_center(first_param)
     
