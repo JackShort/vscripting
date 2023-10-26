@@ -4,12 +4,20 @@ class_name ScriptingGraphNode
 @onready var node_name_label: Label = %NodeName
 
 var _mouse_entered := false
-var _selected = false
+var _selected := false
+var _dragging := false
+var _dragging_offset := Vector2.ZERO
 
 func _input(event):
     if event is InputEventMouseButton and event.is_pressed() and _mouse_entered:
         if event.button_index == MOUSE_BUTTON_LEFT:
             _select_node()
+            _dragging = true
+            _dragging_offset = global_position - get_global_mouse_position()
+
+    if event is InputEventMouseButton and event.is_released() and _dragging:
+        if event.button_index == MOUSE_BUTTON_LEFT:
+            _dragging = false
 
 func init(graph_node_data: GraphNodeData):
     node_name_label.text = graph_node_data.name
@@ -17,6 +25,10 @@ func init(graph_node_data: GraphNodeData):
 func _ready():
     mouse_entered.connect(func(): _on_mouse_entered())
     mouse_exited.connect(func(): _mouse_entered = false)
+
+func _physics_process(_delta):
+    if _dragging:
+        global_position = get_global_mouse_position() + _dragging_offset
 
 func _select_node():
     if _selected:
@@ -38,5 +50,4 @@ func _set_panel_border_width(width: int):
     panel.border_width_left = width
 
 func _on_mouse_entered():
-    print("entering")
     _mouse_entered = true
