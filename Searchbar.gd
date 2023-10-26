@@ -74,4 +74,5 @@ func _add_graph_node():
     get_parent().add_child(graph_node)
     graph_node.init(_top_graph_node)
     graph_node.global_position = global_position
+    graph_node.select_node()
     node_added.emit()

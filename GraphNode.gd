@@ -11,7 +11,7 @@ var _dragging_offset := Vector2.ZERO
 func _input(event):
     if event is InputEventMouseButton and event.is_pressed() and _mouse_entered:
         if event.button_index == MOUSE_BUTTON_LEFT:
-            _select_node()
+            select_node()
             _dragging = true
             _dragging_offset = global_position - get_global_mouse_position()
 
@@ -35,7 +35,7 @@ func _physics_process(_delta):
     if _dragging:
         global_position = get_global_mouse_position() + _dragging_offset
 
-func _select_node():
+func select_node():
     if _selected:
         return
 
