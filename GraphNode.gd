@@ -19,6 +19,11 @@ func _input(event):
         if event.button_index == MOUSE_BUTTON_LEFT:
             _dragging = false
 
+func _unhandled_input(event):
+    if event is InputEventMouseButton and event.is_pressed() and _selected:
+        if event.button_index == MOUSE_BUTTON_LEFT:
+            Global.graph.update_selected_node(null)
+
 func init(graph_node_data: GraphNodeData):
     node_name_label.text = graph_node_data.name
 

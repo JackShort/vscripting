@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d23k47vwmjlya"]
+[gd_scene load_steps=5 format=3 uid="uid://d23k47vwmjlya"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_dqnvj"]
 [ext_resource type="Script" path="res://GridRenderer.gd" id="1_eaphm"]
 [ext_resource type="Script" path="res://GridCam.gd" id="1_tuxxw"]
-[ext_resource type="PackedScene" uid="uid://cgdolghcjt43v" path="res://GraphNode.tscn" id="4_86ki2"]
 [ext_resource type="PackedScene" uid="uid://dd45w0c6lva0" path="res://GraphNodeList.tscn" id="5_aqdkv"]
 
 [node name="Main" type="Node2D"]
@@ -17,12 +16,6 @@ offset_bottom = 5680.0
 mouse_filter = 2
 color = Color(0.160784, 0.160784, 0.160784, 1)
 script = ExtResource("1_eaphm")
-
-[node name="Control" parent="." instance=ExtResource("4_86ki2")]
-offset_left = 496.0
-offset_top = 288.0
-offset_right = 796.0
-offset_bottom = 370.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
