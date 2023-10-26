@@ -1,11 +1,12 @@
 extends Camera2D
 
 var deadzone = 0.01
-var zoom_factor: float = 1.01
+var zoom_factor: float = 1.07
 var max_zoom: Vector2 = Vector2(2, 2)
 var min_zoom: Vector2 = Vector2(0.5, 0.5)
 var pan_speed: float = 800.0
 
+var wish_zoom_factor := 0.0
 var wish_pan_direction := Vector2.ZERO
 
 func _input(event):
@@ -15,18 +16,20 @@ func _input(event):
             return
         
         if (zoom_strength > 0):
-            zoom_towards_cursor(zoom_factor)
+            wish_zoom_factor = zoom_factor
         else:
-            zoom_towards_cursor(1/zoom_factor)
+            wish_zoom_factor = 1/zoom_factor
     elif event is InputEventPanGesture:
         wish_pan_direction = event.delta.normalized()
 
 func _physics_process(delta):
-    if wish_pan_direction.is_zero_approx():
-        return
+    if wish_zoom_factor > 0:
+        zoom_towards_cursor(wish_zoom_factor)
+        wish_zoom_factor = 0.0
 
-    global_position += wish_pan_direction * pan_speed * delta * (1 / zoom.x)
-    wish_pan_direction = Vector2.ZERO
+    if not wish_pan_direction.is_zero_approx():
+        global_position += wish_pan_direction * pan_speed * delta * (1 / zoom.x)
+        wish_pan_direction = Vector2.ZERO
 
 
 func zoom_towards_cursor(zoom_delta):
