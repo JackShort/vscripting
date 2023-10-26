@@ -28,6 +28,10 @@ func _input(event):
         if _search_bar_node:
             _search_bar_node.queue_free()
             _search_bar_node = null
+    
+    if Input.is_action_pressed("ui_text_backspace") and _selected_node:
+        _selected_node.queue_free()
+        _selected_node = null
 
 func update_selected_node(graph_node: ScriptingGraphNode):
     if _selected_node:
