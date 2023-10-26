@@ -6,6 +6,10 @@
 [ext_resource type="Theme" uid="uid://bo8kigawanwjo" path="res://text_theme.tres" id="3_y1uqa"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmcrv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy021"]
 
