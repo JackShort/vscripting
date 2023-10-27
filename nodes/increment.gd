@@ -1,11 +1,9 @@
 extends GraphNodeData
 
+func exec(node_sig):
+    var input_arrays = get_graph_inputs(node_sig, ['target'])
+    var first_input_sig = input_arrays[0][0]
+    var first_input_name = input_arrays[1][0]
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-    pass
+    var input = Global.graph.graph_dict[first_input_sig]['outputs'][first_input_name]
+    input.value += 1

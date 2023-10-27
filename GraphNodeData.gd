@@ -22,3 +22,14 @@ func get_graph_output_value(node_sig, input_name):
 func set_graph_outputs(node_sig: String, args: Array[String], values: Array):
     for i in args.size():
         Global.graph.graph_dict[node_sig]["outputs"][args[i]] = values[i]
+
+func get_graph_inputs(node_sig: String, inputs: Array[String]):
+    var serialized_inputs = Global.graph.graph_dict[node_sig]["inputs"]
+    var node_sigs = []
+    var param_names = []
+
+    for input in inputs:
+        node_sigs.append(serialized_inputs[input]['node'])
+        param_names.append(serialized_inputs[input]['param_name'])
+    
+    return [node_sigs, param_names]
