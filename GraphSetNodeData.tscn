@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw7yfw402epct"]
+
+[ext_resource type="Script" path="res://nodes/set_param_node.gd" id="1_70v04"]
+
+[node name="GraphNodeData" type="Node"]
+script = ExtResource("1_70v04")
