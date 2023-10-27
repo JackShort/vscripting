@@ -157,6 +157,7 @@ offset_bottom = 5752.0
 mouse_filter = 2
 color = Color(0.160784, 0.160784, 0.160784, 1)
 script = ExtResource("1_eaphm")
+grid_color = Color(0.0352941, 0.0352941, 0.0352941, 0.501961)
 
 [node name="Camera2D" type="Camera2D" parent="Graph"]
 anchor_mode = 0
