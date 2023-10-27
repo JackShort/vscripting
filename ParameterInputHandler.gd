@@ -30,6 +30,7 @@ func _on_add_param():
     param_displayer.get_node("TypeLabel").text = Global.sol_types_to_string[sol_param.type]
     param_displayer.get_node("Value").text = str(sol_param.value)
 
+    Global.add_parameter_to_node_list(param_name)
     param_input.clear()
 
 func _process(_delta):

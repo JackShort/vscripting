@@ -16,7 +16,7 @@ func _input(event):
         if event.button_index == MOUSE_BUTTON_LEFT:
             Global.graph.dragged_param.line_segment.attach_param(self, true)
 
-func init(text: String, parent_sig: String, _is_exec = false, hardcoded = false):
+func init(text: String, parent_sig: String, _is_exec = false, hardcoded = false, parameter_name = ""):
     label.text = text
     is_exec = _is_exec
     parent_node_sig = parent_sig
@@ -27,6 +27,11 @@ func init(text: String, parent_sig: String, _is_exec = false, hardcoded = false)
     if hardcoded:
         hardcoded_input.visible = true
         parameter_button.visible = false
+    
+    if parameter_name != "":
+        Global.graph.graph_dict[parent_node_sig]["outputs"] = {
+            "value": Global.vm_state["parameters"][parameter_name]
+        }
 
 func _ready():
     parameter_button.button_down.connect(_on_button_down)

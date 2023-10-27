@@ -27,3 +27,12 @@ func add_function_to_node_list(function_name: String):
     graph_node_data.is_executable = false
     graph_node_list.add_child(graph_node_data)
     added_function.emit()
+
+func add_parameter_to_node_list(parameter_name: String):
+    var graph_node_data = graph_node_data_scene.instantiate()
+    graph_node_data.name = "get_" + parameter_name
+    graph_node_data.is_executable = false
+    graph_node_data.can_execute = false
+    graph_node_data.parameter_name = parameter_name
+    graph_node_data.outputs.append("value")
+    graph_node_list.add_child(graph_node_data)

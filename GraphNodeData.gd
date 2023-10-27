@@ -6,5 +6,15 @@ class_name GraphNodeData
 @export var inputs: Array[String] = []
 @export var outputs: Array[String] = []
 
+var parameter_name := ''
+
 func exec(_node_sig):
     pass
+
+func get_graph_output_value(node_sig, input_name):
+    var input = Global.graph.graph_dict[node_sig]['outputs'][input_name]
+
+    if input is SolParameter:
+        return input.value
+
+    return input
