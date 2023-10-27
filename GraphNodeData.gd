@@ -18,3 +18,7 @@ func get_graph_output_value(node_sig, input_name):
         return input.value
 
     return input
+
+func set_graph_outputs(node_sig: String, args: Array[String], values: Array):
+    for i in args.size():
+        Global.graph.graph_dict[node_sig]["outputs"][args[i]] = values[i]
