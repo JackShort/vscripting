@@ -4,6 +4,7 @@ class_name GraphNodeParameter
 @onready var parameter_button: Button = %ParameterButton
 @onready var label: Label = %Label
 
+var parent_node_sig := ""
 var _dragging := false
 var line_segment: ParamConnector = null
 var _hovering := false
@@ -14,9 +15,10 @@ func _input(event):
         if event.button_index == MOUSE_BUTTON_LEFT:
             Global.graph.dragged_param.line_segment.attach_param(self, true)
 
-func init(text: String, _is_exec = false):
+func init(text: String, parent_sig: String, _is_exec = false):
     label.text = text
     is_exec = _is_exec
+    parent_node_sig = parent_sig
 
     if is_exec:
         parameter_button.modulate = Color.WHITE

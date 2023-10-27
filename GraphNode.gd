@@ -6,6 +6,8 @@ class_name ScriptingGraphNode
 @onready var input_container: VBoxContainer = %InputContainer
 @onready var output_container: VBoxContainer = %OutputContainer
 
+var sig := ""
+
 var _mouse_entered := false
 var _selected := false
 var _dragging := false
@@ -27,8 +29,9 @@ func _unhandled_input(event):
         if event.button_index == MOUSE_BUTTON_LEFT:
             Global.graph.update_selected_node(null)
 
-func init(graph_node_data: GraphNodeData):
+func init(graph_node_data: GraphNodeData, node_sig: String):
     node_name_label.text = graph_node_data.name
+    sig = node_sig
     if graph_node_data.is_executable:
         add_parameter("Exec", false, true)
     if graph_node_data.can_execute:
@@ -85,7 +88,7 @@ func add_parameter(param_name: String, output = false, is_exec = false):
         output_container.add_child(param)
         param.move_child(param.get_children()[1], 0)
         param.alignment = 2
-        param.init(param_name, is_exec)
+        param.init(param_name, sig, is_exec)
     else:
         input_container.add_child(param)
-        param.init(param_name, is_exec)
+        param.init(param_name, sig, is_exec)

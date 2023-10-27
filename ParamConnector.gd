@@ -13,6 +13,9 @@ func attach_param(param: GraphNodeParameter, second = false):
     if second:
         second_param = param
         initialized = true
+
+        if second_param.is_exec:
+            Global.graph.graph_dict[first_param.parent_node_sig]["next"] = second_param.parent_node_sig
     else:
         first_param = param
 

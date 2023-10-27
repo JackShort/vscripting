@@ -72,7 +72,6 @@ func _search(text: String):
 func _add_graph_node():
     var graph_node = graph_node_scene.instantiate()
     get_parent().add_child(graph_node)
-    graph_node.init(_top_graph_node)
     graph_node.global_position = global_position
     graph_node.select_node()
 
@@ -83,6 +82,7 @@ func _add_graph_node():
         node_sig = _top_graph_node.name
         exec = func(): print("RUNNING")
 
+    graph_node.init(_top_graph_node, node_sig)
     Global.graph.graph_dict[node_sig] = {
         "name": _top_graph_node.name,
         "exec": exec,
