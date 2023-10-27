@@ -41,7 +41,10 @@ func init(graph_node_data: GraphNodeData, node_sig: String):
         add_parameter("Exec", true, true)
     
     for i in graph_node_data.inputs:
-        add_parameter(i)
+        if not graph_node_data.is_executable && not graph_node_data.can_execute:
+            add_parameter(i, false, false, true)
+        else:
+            add_parameter(i)
 
     for i in graph_node_data.outputs:
         add_parameter(i, true)
@@ -84,14 +87,14 @@ func _set_panel_border_width(width: int):
 func _on_mouse_entered():
     _mouse_entered = true
 
-func add_parameter(param_name: String, output = false, is_exec = false):
+func add_parameter(param_name: String, output = false, is_exec = false, hardcoded = false):
     var param = graph_node_parameter.instantiate()
 
     if output:
         output_container.add_child(param)
-        param.move_child(param.get_children()[1], 0)
+        param.move_child(param.get_children()[2], 0)
         param.alignment = 2
         param.init(param_name, sig, is_exec)
     else:
         input_container.add_child(param)
-        param.init(param_name, sig, is_exec)
+        param.init(param_name, sig, is_exec, hardcoded)

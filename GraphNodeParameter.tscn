@@ -17,6 +17,12 @@ content_margin_bottom = 4.0
 theme_override_constants/separation = 8
 script = ExtResource("1_tyh1b")
 
+[node name="HardcodedInput" type="LineEdit" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme = ExtResource("3_y1uqa")
+
 [node name="ParameterButton" type="Button" parent="."]
 unique_name_in_owner = true
 modulate = Color(1, 0.247059, 1, 1)
