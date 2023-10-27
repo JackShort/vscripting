@@ -5,6 +5,7 @@ class_name Graph
 
 var graph_dict := {}
 var dragged_param: GraphNodeParameter = null
+var added_nodes := 0
 
 var _search_bar_node: Control = null
 var _selected_node: ScriptingGraphNode = null

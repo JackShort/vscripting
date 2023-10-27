@@ -75,8 +75,9 @@ func _add_graph_node():
     graph_node.global_position = global_position
     graph_node.select_node()
 
-    var node_sig = _top_graph_node.name + str(Global.graph.graph_dict.keys().size())
+    var node_sig = _top_graph_node.name + str(Global.graph.added_nodes)
     var exec = _top_graph_node.exec
+    Global.graph.added_nodes += 1
 
     if Global.vm_state.has("functions") and _top_graph_node.name in Global.vm_state["functions"].keys():
         node_sig = _top_graph_node.name
