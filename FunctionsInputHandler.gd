@@ -22,5 +22,6 @@ func _on_add_param():
     var param_displayer = param_display_scene.instantiate()
     function_container.add_child(param_displayer)
     param_displayer.get_node("NameLabel").text = sol_function.name
+    Global.add_function_to_node_list(function_name)
 
     function_input.clear()

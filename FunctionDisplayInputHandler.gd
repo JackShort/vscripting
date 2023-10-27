@@ -43,6 +43,4 @@ func _on_add_param(output: bool):
     param_displayer.get_node("TypeLabel").text = Global.sol_types_to_string[sol_param.type]
     param_displayer.get_node("Value").text = str(sol_param.value)
 
-    print(Global.vm_state)
-
     param_input.clear()
