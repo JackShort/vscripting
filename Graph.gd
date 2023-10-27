@@ -3,6 +3,7 @@ class_name Graph
 
 @onready var search_node_scene = preload("res://Searchbar.tscn")
 
+var graph_dict := {}
 var dragged_param: GraphNodeParameter = null
 
 var _search_bar_node: Control = null

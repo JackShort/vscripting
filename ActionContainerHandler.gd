@@ -8,7 +8,9 @@ func _ready():
     Global.added_function.connect(refresh_runner)
 
 func _on_button_down():
-    print("should run")
+    var sig = runner_dropdown.get_item_text((runner_dropdown.selected))
+    if Global.graph.graph_dict.has(sig):
+        Global.graph.graph_dict[sig]["exec"].call()
 
 func refresh_runner():
     runner_dropdown.clear()

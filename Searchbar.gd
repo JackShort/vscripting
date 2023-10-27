@@ -75,4 +75,17 @@ func _add_graph_node():
     graph_node.init(_top_graph_node)
     graph_node.global_position = global_position
     graph_node.select_node()
+
+    var node_sig = _top_graph_node.name + str(Global.graph.graph_dict.keys().size())
+    var exec = _top_graph_node.exec
+
+    if Global.vm_state.has("functions") and _top_graph_node.name in Global.vm_state["functions"].keys():
+        node_sig = _top_graph_node.name
+        exec = func(): print("RUNNING")
+
+    Global.graph.graph_dict[node_sig] = {
+        "name": _top_graph_node.name,
+        "exec": exec,
+    }
+
     node_added.emit()
