@@ -29,6 +29,16 @@ func _unhandled_input(event):
 
 func init(graph_node_data: GraphNodeData):
     node_name_label.text = graph_node_data.name
+    if graph_node_data.is_executable:
+        add_parameter("Exec", false, true)
+    if graph_node_data.can_execute:
+        add_parameter("Exec", true, true)
+    
+    for i in graph_node_data.inputs:
+        add_parameter(i)
+
+    for i in graph_node_data.outputs:
+        add_parameter(i, true)
 
 func _ready():
     for child in input_container.get_children():
@@ -41,9 +51,6 @@ func _ready():
 
     mouse_entered.connect(func(): _on_mouse_entered())
     mouse_exited.connect(func(): _mouse_entered = false)
-
-    add_parameter("param1")
-    add_parameter("param2", true)
 
 func _physics_process(_delta):
     if _dragging:
@@ -71,14 +78,14 @@ func _set_panel_border_width(width: int):
 func _on_mouse_entered():
     _mouse_entered = true
 
-func add_parameter(param_name: String, output = false):
+func add_parameter(param_name: String, output = false, is_exec = false):
     var param = graph_node_parameter.instantiate()
 
     if output:
         output_container.add_child(param)
         param.move_child(param.get_children()[1], 0)
         param.alignment = 2
-        param.init(param_name)
+        param.init(param_name, is_exec)
     else:
         input_container.add_child(param)
-        param.init(param_name)
+        param.init(param_name, is_exec)

@@ -11,3 +11,5 @@ script = ExtResource("1_b2x5x")
 [node name="bool" parent="." instance=ExtResource("2_dqge7")]
 
 [node name="add" parent="." instance=ExtResource("2_dqge7")]
+inputs = Array[String](["a", "b"])
+outputs = Array[String](["sum"])

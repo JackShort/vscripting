@@ -24,5 +24,6 @@ func add_node_to_graph(node: Node):
 func add_function_to_node_list(function_name: String):
     var graph_node_data = graph_node_data_scene.instantiate()
     graph_node_data.name = function_name
+    graph_node_data.is_executable = false
     graph_node_list.add_child(graph_node_data)
     added_function.emit()

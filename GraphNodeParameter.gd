@@ -7,14 +7,19 @@ class_name GraphNodeParameter
 var _dragging := false
 var line_segment: ParamConnector = null
 var _hovering := false
+var is_exec := false
 
 func _input(event):
     if event is InputEventMouseButton and event.is_released() and _hovering and Global.graph.dragged_param:
         if event.button_index == MOUSE_BUTTON_LEFT:
             Global.graph.dragged_param.line_segment.attach_param(self, true)
 
-func init(text: String):
+func init(text: String, _is_exec = false):
     label.text = text
+    is_exec = _is_exec
+
+    if is_exec:
+        parameter_button.modulate = Color.WHITE
 
 func _ready():
     parameter_button.button_down.connect(_on_button_down)
