@@ -1,18 +1,21 @@
 extends Node
 
 signal added_function
+signal add_parameter_to_track(parameter_name: String)
 
 @onready var graph_node_data_scene = preload("res://GraphNodeData.tscn")
 @onready var graph_set_node_data_scene = preload("res://GraphSetNodeData.tscn")
 
 enum SolType {
     sol_uint256,
-    sol_bool
+    sol_bool,
+    sol_mapping
 }
 
 var sol_types_to_string = {
     SolType.sol_uint256: "uint256",
     SolType.sol_bool: "bool",
+    SolType.sol_mapping: "mapping",
 }
 
 var graph_node_list: GraphNodeList = null

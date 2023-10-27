@@ -8,6 +8,7 @@ extends VBoxContainer
 
 func _ready():
     add_param_button.button_down.connect(_on_add_param)
+    Global.add_parameter_to_track.connect(_track_param)
 
     for key in Global.sol_types_to_string:
         type_option_button.add_item(Global.sol_types_to_string[key], key)
@@ -36,3 +37,16 @@ func _on_add_param():
 func _process(_delta):
     for child in parameter_container.get_children():
         child.get_node("Value").text = str(Global.vm_state["parameters"][child.get_node("NameLabel").text].value)
+
+func _track_param(parameter_name: String):
+    for child in parameter_container.get_children():
+        if child.get_node("NameLabel").text == parameter_name:
+            return
+
+    var sol_param = Global.vm_state["parameters"][parameter_name]
+    var param_displayer = param_display_scene.instantiate()
+
+    parameter_container.add_child(param_displayer)
+    param_displayer.get_node("NameLabel").text = sol_param.name
+    param_displayer.get_node("TypeLabel").text = Global.sol_types_to_string[sol_param.type]
+    param_displayer.get_node("Value").text = str(sol_param.value)
