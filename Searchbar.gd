@@ -81,7 +81,7 @@ func _add_graph_node():
 
     if Global.vm_state.has("functions") and _top_graph_node.name in Global.vm_state["functions"].keys():
         node_sig = _top_graph_node.name
-        exec = func(): print("RUNNING")
+        exec = func(_node_sig): print("RUNNING")
 
     graph_node.init(_top_graph_node, node_sig)
     Global.graph.graph_dict[node_sig] = {

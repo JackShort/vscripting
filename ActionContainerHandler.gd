@@ -10,7 +10,7 @@ func _ready():
 func _on_button_down():
     var sig = runner_dropdown.get_item_text((runner_dropdown.selected))
     while Global.graph.graph_dict.has(sig) and Global.graph.graph_dict[sig].has("exec"):
-        Global.graph.graph_dict[sig]["exec"].call()
+        Global.graph.graph_dict[sig]["exec"].call(sig)
 
         if Global.graph.graph_dict[sig].has("next"):
             sig = Global.graph.graph_dict[sig]["next"]
