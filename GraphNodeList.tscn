@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd45w0c6lva0"]
+[gd_scene load_steps=4 format=3 uid="uid://dd45w0c6lva0"]
 
 [ext_resource type="Script" path="res://GraphNodeList.gd" id="1_b2x5x"]
 [ext_resource type="PackedScene" uid="uid://bgi0u2c7oocb3" path="res://GraphNodeData.tscn" id="2_dqge7"]
+[ext_resource type="Script" path="res://nodes/add_node.gd" id="3_gv4hx"]
 
 [node name="GraphNodeList" type="Node"]
 script = ExtResource("1_b2x5x")
@@ -15,5 +16,6 @@ outputs = Array[String](["value"])
 [node name="bool" parent="." instance=ExtResource("2_dqge7")]
 
 [node name="add" parent="." instance=ExtResource("2_dqge7")]
+script = ExtResource("3_gv4hx")
 inputs = Array[String](["a", "b"])
 outputs = Array[String](["sum"])
