@@ -14,6 +14,9 @@ var _dragging := false
 var _dragging_offset := Vector2.ZERO
 
 func _input(event):
+    if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT:
+        Global.graph.update_selected_node(null)
+
     if event is InputEventMouseButton and event.is_pressed() and _mouse_entered:
         if event.button_index == MOUSE_BUTTON_LEFT:
             select_node()
